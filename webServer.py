@@ -34,8 +34,9 @@ def webServer(port=13331):
       outputdata = b"HTTP/1.1 200 OK\r\n"
       outputdata += b"Server: MySimpleServer\r\n"
       outputdata += b"Content-Type: text/html; charset=UTF-8\r\n"
+      outputdata += b"Connection: close\r\n"
       outputdata += b"\r\n"
-
+      
                
       for i in f:
           outputdata += i
@@ -56,6 +57,7 @@ def webServer(port=13331):
       response = b"HTTP/1.1 404 Not Found\r\n"
       response += b"Server: MySimpleServer\r\n"
       response += b"Content-Type: text/html\r\n"
+      response += b"Connection: close\r\n"
       response += b"\r\n"
       response += b"<h1>404 Not Found</h1>"
 
@@ -74,4 +76,5 @@ def webServer(port=13331):
 
 if __name__ == "__main__":
   webServer(13331)
+
 
